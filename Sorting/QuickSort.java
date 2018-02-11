@@ -1,5 +1,10 @@
 package com.academy.sorting;
 
+/*
+ * Quick Sort: Partition around pivot index and swap all samller elements then pivot towards left and greater towards right. 
+ * Time Complexity: O(nlogn)
+ * Space Complexity: O(1);
+ */
 public class QuickSort {
 
 	public static void main(String[] args) {
