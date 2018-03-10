@@ -2,7 +2,7 @@ package com.academy.app.array.examples;
 
 /*
  * Product of Array Except self
- * Input = {1,2,3,4,5}			{arr[1]*..arr[n], arr[0]*arr[2]*...arr[n], ...., arr[0]*arr[1]*...arr[n-1]}
+ * Input = {1,2,3,4,5}		Details: {arr[1]*..arr[n], arr[0]*arr[2]*...arr[n], ...., arr[0]*arr[1]*...arr[n-1]}
  * Output = {120,60,40,30,24}
  */
 public class ArrayProduct {
