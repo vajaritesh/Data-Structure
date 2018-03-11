@@ -3,11 +3,11 @@ package com.academy.app.array.examples;
 import java.util.Stack;
 
 /*
- * Find largest rectangular area in Histrogram
+ * Find largest rectangular area in Histogram
  * input = { 6, 2, 5, 4, 5, 1, 6 }
  * output= 12 => [5,4,5] => 4*3 = 12
  */
-public class LargestRectangularAreaHistrogram {
+public class LargestRectangularAreaHistogram {
 
 	public static void main(String[] args) {
 		// int[] arr = { 6, 2, 5, 4, 5, 1, 6 };
