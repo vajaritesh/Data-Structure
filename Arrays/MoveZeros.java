@@ -19,6 +19,23 @@ public class MoveZeros {
 		moveZerosStableOptimize(nums);
 		System.out.println("Stable with Optimization:");
 		print(nums);
+		moveZerosOptimize(nums);
+		System.out.println("Stable with Optimization And Memory efficient:");
+		print(nums);
+	}
+
+	// Easy and most efficient way
+	private static void moveZerosOptimize(int[] nums) {
+		int newIndex = 0;
+
+		for (int index = 0; index < nums.length; index++) {
+			if (nums[index] != 0) {
+				nums[newIndex++] = nums[index];
+			}
+		}
+		while (newIndex < nums.length) {
+			nums[newIndex++] = 0;
+		}
 	}
 
 	// In-Place without maintaining non-zero elements relative paths. Unstable
