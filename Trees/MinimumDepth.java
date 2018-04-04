@@ -25,7 +25,7 @@ public class MinimumDepth {
 		root.right = new TreeNode(3);
 		root.left.left = new TreeNode(4);
 		root.left.right = new TreeNode(5);
-		root.right.right = new TreeNode(6);
+		// root.right.right = new TreeNode(6);
 		int min = minDepthRec(root);
 		System.out.println(min);
 		int minDepth = minDepthIterative(root);
@@ -36,13 +36,14 @@ public class MinimumDepth {
 		if (root == null) {
 			return 0;
 		}
-		if (root.left == null) {
-			return minDepthRec(root.right) + 1;
+		int left = minDepthRec(root.left);
+		int right = minDepthRec(root.right);
+		if (left == 0 || right == 0) {
+			return left + right + 1;
 		}
-		if (root.right == null) {
-			return minDepthRec(root.left) + 1;
+		else {
+			return Math.min(left, right) + 1;
 		}
-		return Math.min(minDepthRec(root.left), minDepthRec(root.right)) + 1;
 	}
 
 	private static int minDepthIterative(TreeNode root) {
