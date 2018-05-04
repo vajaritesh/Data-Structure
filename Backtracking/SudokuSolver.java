@@ -23,50 +23,34 @@ public class SudokuSolver {
 		print(board);
 	}
 
-	private static void print(char[][] soduku) {
-		for (int row = 0; row < soduku.length; ++row) {
-			if (row % 3 == 0)
-				System.out.println("+-------+-------+-------+");
-
-			for (int col = 0; col < soduku.length; col++) {
-				if (col % 3 == 0)
-					System.out.print("| ");
-
-				System.out.print(soduku[row][col] == 0 ? "  " : soduku[row][col] + " ");
-			}
-			System.out.println("|");
-		}
-		System.out.println("+-------+-------+-------+");
-	}
-
 	public static void solveSudoku(char[][] board) {
 		solve(board);
 	}
 
 	public static boolean solve(char[][] board) {
-		for (int i = 0; i < 9; i++) {
-			for (int j = 0; j < 9; j++) {
-				if (board[i][j] != '.')
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] != '.') {
 					continue;
-
-				for (int k = 1; k <= 9; k++) {
-					board[i][j] = (char) (k + '0');
-					if (isValid(board, i, j) && solve(board))
-						return true;
-					board[i][j] = '.';
 				}
 
+				for (int k = 1; k <= board.length; k++) {
+					board[i][j] = (char) (k + '0');
+					if (isValid(board, i, j) && solve(board)) {
+						return true;
+					}
+					board[i][j] = '.';
+				}
 				return false;
 			}
 		}
-
 		return true;
 	}
 
 	public static boolean isValid(char[][] board, int i, int j) {
 		HashSet<Character> set = new HashSet<Character>();
 
-		for (int k = 0; k < 9; k++) {
+		for (int k = 0; k < board.length; k++) {
 			if (set.contains(board[i][k]))
 				return false;
 
@@ -77,7 +61,7 @@ public class SudokuSolver {
 
 		set.clear();
 
-		for (int k = 0; k < 9; k++) {
+		for (int k = 0; k < board.length; k++) {
 			if (set.contains(board[k][j]))
 				return false;
 
@@ -100,7 +84,22 @@ public class SudokuSolver {
 				}
 			}
 		}
-
 		return true;
+	}
+
+	private static void print(char[][] soduku) {
+		for (int row = 0; row < soduku.length; ++row) {
+			if (row % 3 == 0)
+				System.out.println("+-------+-------+-------+");
+
+			for (int col = 0; col < soduku.length; col++) {
+				if (col % 3 == 0)
+					System.out.print("| ");
+
+				System.out.print(soduku[row][col] == 0 ? "  " : soduku[row][col] + " ");
+			}
+			System.out.println("|");
+		}
+		System.out.println("+-------+-------+-------+");
 	}
 }
